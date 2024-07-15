@@ -1,29 +1,23 @@
 import lombok.Builder;
-import lombok.Data;
+import lombok.Value;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Builder
-@Data
+@Value
 public class Course {
-    private final int id;
-    private final String name;
-    private final Teacher teacher;
-    private List<Student> students;
+    int id;
+    String name;
+    Teacher teacher;
+    List<Student> students = new ArrayList<>();
 
     public void addStudent(Student student) {
-        if (students == null) {
-            students = new ArrayList<>();
-        }
-
         students.add(student);
     }
 
     public void removeStudent(Student student) {
-        if (students != null) {
-            students.remove(student);
-        }
+        students.remove(student);
     }
 
 }
